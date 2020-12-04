@@ -1,0 +1,15 @@
+{% extends 'base_layout.html' %}
+
+{% block title%}HomePage{% endblock %}
+
+{%block content %}
+<p>This is Homepage of MySite</p>
+{% if user.is_authenticated %}
+    Welcome {{user.username}} !
+    <p>Click <a href="{% url 'logout' %}">here</a> to logout </p>
+{% else %}
+    <h3>You are not logged in</h3>
+    <p>Click <a href="{% url 'login' %}">here</a> to login </p>
+    <p>Register Yourself by clicking <a href="{% url 'accounts:register' %}"> here </a> </p>
+{% endif %}
+{% endblock %}
